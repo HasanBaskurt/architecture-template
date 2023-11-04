@@ -1,0 +1,17 @@
+{
+    "home":{
+        "title":"Ana Sayfa"
+    },
+    "general": {
+        "button": {
+            "save":" Kaydet {}",
+            "delete":"Sil"
+        },
+        "dialog":{
+            "version":{
+                "title":"Versiyon",
+                "content":"Versiyon Bilgisi"
+            }
+        }
+    }
+}
