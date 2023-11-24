@@ -1,6 +1,7 @@
 //This class used to initialize the application process
 import 'dart:async';
 
+import 'package:architecture_template/product/init/config/app_environment.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'package:logger/logger.dart';
 final class ApplicationInitialize {
 //  Project basic required initialize
   Future<void> make() async {
+    WidgetsFlutterBinding.ensureInitialized();
     await runZonedGuarded<Future<void>>(_initialize, (error, stack) {
       Logger().e(error);
     });
@@ -19,7 +21,6 @@ final class ApplicationInitialize {
 
 //This method used to initialize the application process
   Future<void> _initialize() async {
-    WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
     EasyLocalization.logger.enableLevels = [LevelMessages.error];
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -32,5 +33,7 @@ final class ApplicationInitialize {
       // Todo: add custom logger
       Logger().e(details.exceptionAsString());
     };
+    AppEnvironment.general();
+    //AppEnvironment.setup(config: DevEnv());
   }
 }

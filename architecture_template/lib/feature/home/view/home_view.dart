@@ -1,3 +1,4 @@
+import 'package:architecture_template/product/init/config/app_environment.dart';
 import 'package:architecture_template/product/init/language/locale_keys.g.dart';
 import 'package:architecture_template/product/init/product_localization.dart';
 import 'package:architecture_template/product/utility/conctants/enums/locales.dart';
@@ -19,6 +20,10 @@ class _HomeViewState extends State<HomeView> {
       appBar: _HomeAppBar(),
       body: Column(
         children: [
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(AppEnviromentItems.baseUrl.value),
+          ),
           Text('Change Language'),
           ElevatedButton(
             onPressed: () {
